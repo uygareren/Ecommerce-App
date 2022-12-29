@@ -19,18 +19,36 @@
              android:layout_height="wrap_content"
              android:orientation="vertical">
 
-             <EditText
-                 android:id="@+id/search_box"
+             <LinearLayout
                  android:layout_width="match_parent"
-                 android:layout_height="60dp"
-                 android:layout_margin="8dp"
-                 android:background="@drawable/search_custom"
-                 android:drawableLeft="@drawable/ic_search_24"
-                 android:drawablePadding="5dp"
-                 android:elevation="3dp"
-                 android:hint="Search"
-                 android:textColorHint="@color/black"
-                 android:padding="13dp" />
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal">
+                 <EditText
+                     android:id="@+id/search_box"
+                     android:layout_width="300dp"
+                     android:layout_height="60dp"
+                     android:layout_margin="8dp"
+                     android:background="@drawable/search_custom"
+                     android:drawableLeft="@drawable/ic_search_24"
+                     android:drawablePadding="5dp"
+                     android:elevation="3dp"
+                     android:hint="Search"
+                     android:textColorHint="@color/black"
+                     android:padding="13dp" />
+
+                 <ImageView
+                     android:id="@+id/goProfile"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:src="@drawable/ic__person">
+
+                 </ImageView>
+
+             </LinearLayout>
+
+
+
+
 
              <LinearLayout
                  android:layout_marginLeft="10dp"

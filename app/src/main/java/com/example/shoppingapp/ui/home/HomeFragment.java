@@ -1,10 +1,12 @@
 package com.example.shoppingapp.ui.home;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoppingapp.R;
+import com.example.shoppingapp.activities.ProfileActivity;
 import com.example.shoppingapp.adapters.HomeAdapter;
 import com.example.shoppingapp.adapters.DiscountAdapters;
 import com.example.shoppingapp.model.HomeCategory;
@@ -35,6 +38,9 @@ public class HomeFragment extends Fragment {
 
     RecyclerView discountRec, homeCatRec; // Recyclerview attributeleri.
     FirebaseFirestore db; // Firebase attribute
+
+    ImageView GoProfile;
+
 
     ScrollView scrollView;
 
@@ -66,6 +72,16 @@ public class HomeFragment extends Fragment {
         scrollView = root.findViewById(R.id.scroll_view);
 
         scrollView.setVisibility(View.GONE);
+
+        GoProfile = root.findViewById(R.id.goProfile);
+
+        GoProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         // POPULAR İTEMS

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,6 +78,9 @@ public class MyBagAdapter extends RecyclerView.Adapter<MyBagAdapter.ViewHolder> 
         });
 
 
+
+
+
         totalPrice = totalPrice + bagList.get(position).getTotalPrice();
         Intent intent =  new Intent("MyTotalAmount");
         intent.putExtra("totalAmount",totalPrice);
@@ -92,6 +96,7 @@ public class MyBagAdapter extends RecyclerView.Adapter<MyBagAdapter.ViewHolder> 
 
         TextView name,price,quantity,totalPrice;
         ImageView deleteItem,Product_img;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

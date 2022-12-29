@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shoppingapp.R;
 import com.example.shoppingapp.activities.PlacedOrderActivity;
@@ -97,8 +98,9 @@ public class BagFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getContext(), PlacedOrderActivity.class);
-                    intent.putExtra("itemlist", (Serializable) myBagModels);
                     startActivity(intent);
+                    Toast.makeText(getActivity(), "Your order has been placed", Toast.LENGTH_SHORT).show();
+
                 }
             });
 
@@ -106,6 +108,8 @@ public class BagFragment extends Fragment {
 
 
         }
+
+
         public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -113,4 +117,7 @@ public class BagFragment extends Fragment {
                 overTotalAmount.setText("Total Bill: " + totalBill);
             }
         };
+
+
+
 }

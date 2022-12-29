@@ -1,7 +1,9 @@
 package com.example.shoppingapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,14 +13,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.shoppingapp.R;
-import com.example.shoppingapp.ui.profile.ProfileFragment;
 
 public class ProfileUpdate extends AppCompatActivity {
 
     TextView UptName, UptSurname, UptPhone, UptEmail;
     Button UpdateBtn;
 
-    FragmentManager manager;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,18 +32,26 @@ public class ProfileUpdate extends AppCompatActivity {
         UptEmail = findViewById(R.id.profile_email);
         UpdateBtn = findViewById(R.id.update);
 
-
         UpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String name = UptName.getText().toString();
-                String surname = UptSurname.getText().toString();
-                String phone = UptPhone.getText().toString();
-                String email = UptEmail.getText().toString();
+            public void onClick(View view) {
 
+                String Name = UptName.getText().toString();
+                String Surname = UptSurname.getText().toString();
+                String Phone = UptPhone.getText().toString();
+                String Email = UptEmail.getText().toString();
+
+                Intent intent = new Intent(ProfileUpdate.this, ProfileActivity.class);
+                intent.putExtra("name", Name);
+                intent.putExtra("surname", Surname);
+                intent.putExtra("phone", Phone);
+                intent.putExtra("email", Email);
+                startActivity(intent);
 
             }
         });
 
+
     }
+
 }
