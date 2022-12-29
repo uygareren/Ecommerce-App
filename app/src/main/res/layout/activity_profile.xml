@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".activities.ProfileActivity">
 
 
     <ImageView
@@ -199,28 +199,16 @@
 
 
     <Button
-
-        android:id="@+id/userSettingsBtn"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="85dp"
-        android:text="User Settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileUpdateBtn" />
-
-    <Button
         android:id="@+id/logoutBtn"
         android:layout_width="240dp"
         android:layout_height="60dp"
+        android:layout_marginTop="48dp"
         android:gravity="center"
         android:text="Log out"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userSettingsBtn" />" />
+        app:layout_constraintTop_toBottomOf="@+id/profileUpdateBtn" />" />
 
 
 

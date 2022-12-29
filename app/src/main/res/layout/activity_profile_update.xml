@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".activities.ProfileUpdate">
 
     <ImageView
         android:id="@+id/profile_img"
@@ -112,7 +112,7 @@
         android:id="@+id/update"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:padding="10dp"
         android:text="UPDATE"
         app:layout_constraintEnd_toEndOf="parent"
