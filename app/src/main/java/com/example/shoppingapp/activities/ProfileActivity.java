@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shoppingapp.R;
 import com.example.shoppingapp.ui.home.HomeFragment;
@@ -28,7 +29,6 @@ public class ProfileActivity extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         email = findViewById(R.id.email);
         ProfileUpdateBtn = findViewById(R.id.profileUpdateBtn);
-        ProfileSettingsBtn = findViewById(R.id.userSettingsBtn);
         LogoutBtn = findViewById(R.id.logoutBtn);
         goHome = findViewById(R.id.gobackHome);
 
@@ -63,6 +63,16 @@ public class ProfileActivity extends AppCompatActivity {
         surname.setText(Surname);
         phone.setText(Phone);
         email.setText(Email);
+
+        LogoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(ProfileActivity.this, "Log out Succesfullt", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

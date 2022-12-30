@@ -57,10 +57,7 @@ public class HomeFragment extends Fragment {
 
 
     // SEARCH SECTİON
-    EditText search_box;
-    private List<ProductsModel> productsModelList;
-    private RecyclerView recyclerViewSearch;
-    private ProductsAdapter productsAdapter;
+
 
 
 
@@ -169,39 +166,7 @@ public class HomeFragment extends Fragment {
                 });
 
 
-        // Search view section
 
-        recyclerViewSearch = root.findViewById(R.id.search_rec);
-        search_box = root.findViewById(R.id.search_box);
-        productsModelList = new ArrayList<>();
-        productsAdapter = new ProductsAdapter(getContext(), productsModelList);
-        recyclerViewSearch.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewSearch.setAdapter(productsAdapter);
-
-        recyclerViewSearch.setHasFixedSize(true);
-        search_box.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if(s.toString().isEmpty()){
-                    productsModelList.clear();
-                    productsAdapter.notifyDataSetChanged();
-                }else{
-                    productOfSearch(s.toString());
-                }
-
-            }
-        });
 
 
 
@@ -209,23 +174,4 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-    private void productOfSearch(String type) {
-        if(!type.isEmpty()){
-            db.collection("AllProducts").whereEqualTo("type", type).get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if(task.isSuccessful() && task.getResult() != null){
-                                productsModelList.clear();
-                                productsAdapter.notifyDataSetChanged();
-                                for(DocumentSnapshot doc: task.getResult().getDocuments()){
-                                    ProductsModel productsModel = doc.toObject(ProductsModel.class);
-                                    productsModelList.add(productsModel);
-                                    productsAdapter.notifyDataSetChanged();
-                                }
-                            }
-                        }
-                    });
-        }
-    }
 }
